@@ -18,6 +18,7 @@
 # include <ctype.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -68,5 +69,18 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int			ft_printf(const char *c, ...);
+void		ft_putchar(int c);
+void		distribute(char c, va_list ap);
+void		ft_putstr(char *str);
+void		ft_putint(int n);
+void		putint(int n);
+void		ft_putu(unsigned int n);
+void		putu(unsigned int n);
+void		dectohex(int n);
+void		convert(unsigned long int n);
+void		dectohex_up(int n);
+void		convert_up(long n);
+void		ft_putptr(void *ptr);
 
 #endif

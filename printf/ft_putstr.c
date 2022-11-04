@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esali <esali@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 16:54:00 by esali             #+#    #+#             */
-/*   Updated: 2022/06/07 14:13:11 by esali            ###   ########.fr       */
+/*   Created: 2022/10/03 11:21:25 by esali             #+#    #+#             */
+/*   Updated: 2022/10/16 18:46:38 by esali            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putstr(char *str)
 {
-	int		i;
-	char	*d;
-
-	d = (char *) s;
-	i = 0;
-	while (i < (int) n)
+	if (str == NULL)
+		ft_putstr("(null)");
+	else
 	{
-		d[i] = '\0';
-		i++;
+		while (*str != 0)
+		{
+			ft_putchar(*str);
+			str++;
+		}
 	}
 }
