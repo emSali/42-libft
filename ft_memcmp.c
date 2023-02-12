@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esali <esali@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 14:21:41 by esali             #+#    #+#             */
-/*   Updated: 2022/06/07 14:15:15 by esali            ###   ########.fr       */
+/*   Created: 2022/02/17 11:40:33 by esali             #+#    #+#             */
+/*   Updated: 2022/06/07 14:14:44 by esali            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*help;
-	int		len;
-	int		i;
+	int				i;
+	unsigned char	*s1_help;
+	unsigned char	*s2_help;
 
-	len = ft_strlen(s1);
-	help = (char *) malloc((len + 1) * sizeof(char));
-	if (help == NULL)
-		return (NULL);
+	s1_help = (unsigned char *)s1;
+	s2_help = (unsigned char *)s2;
 	i = 0;
-	while (i <= len)
+	while (i < (int) n)
 	{
-		help[i] = s1[i];
+		if (s1_help[i] != s2_help[i])
+		{
+			return (((unsigned char)s1_help[i] - (unsigned char)s2_help[i]));
+		}
 		i++;
 	}
-	return (help);
+	return (0);
 }

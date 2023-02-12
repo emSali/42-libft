@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esali <esali@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 14:21:41 by esali             #+#    #+#             */
-/*   Updated: 2022/06/07 14:15:15 by esali            ###   ########.fr       */
+/*   Created: 2022/02/15 15:28:48 by esali             #+#    #+#             */
+/*   Updated: 2022/06/07 14:14:34 by esali            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strdup(const char *s1)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char	*help;
-	int		len;
 	int		i;
+	char	*d;
 
-	len = ft_strlen(s1);
-	help = (char *) malloc((len + 1) * sizeof(char));
-	if (help == NULL)
-		return (NULL);
+	d = b;
 	i = 0;
-	while (i <= len)
+	while (i != (int) len)
 	{
-		help[i] = s1[i];
+		d[i] = c;
 		i++;
 	}
-	return (help);
+	return (b);
 }

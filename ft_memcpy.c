@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esali <esali@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 14:21:41 by esali             #+#    #+#             */
-/*   Updated: 2022/06/07 14:15:15 by esali            ###   ########.fr       */
+/*   Created: 2022/02/15 17:53:07 by esali             #+#    #+#             */
+/*   Updated: 2022/06/07 14:14:42 by esali            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strdup(const char *s1)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*help;
-	int		len;
-	int		i;
+	char		*d;
+	const char	*s;
+	int			i;
 
-	len = ft_strlen(s1);
-	help = (char *) malloc((len + 1) * sizeof(char));
-	if (help == NULL)
+	if (dst == NULL && src == NULL)
 		return (NULL);
+	d = (char *) dst;
+	s = (char *) src;
 	i = 0;
-	while (i <= len)
+	while (i != (int) n)
 	{
-		help[i] = s1[i];
+		d[i] = s[i];
 		i++;
 	}
-	return (help);
+	return (dst);
 }
